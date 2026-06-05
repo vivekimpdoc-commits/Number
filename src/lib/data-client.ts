@@ -108,13 +108,10 @@ const DEFAULT_MOCK_CONTACTS: Contact[] = [
 
 // Helper to get active storage mode
 export function getStoredMode(): StorageMode {
-  // If running inside Capacitor, native file, or similar, defaults to local
-  const isNative = window.location.protocol === 'file:' || 
-                   navigator.userAgent.includes('Capacitor') || 
-                   navigator.userAgent.includes('Android');
+  // Always default to local mode to support static hosting without backend
   const saved = localStorage.getItem('copbook_storage_mode');
-  if (saved === 'cloud' || saved === 'local') return saved;
-  return isNative ? 'local' : 'cloud';
+  if (saved === 'cloud') return 'cloud';
+  return 'local';
 }
 
 export function setStoredMode(mode: StorageMode) {
