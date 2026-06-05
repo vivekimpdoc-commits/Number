@@ -561,6 +561,18 @@ export default function App() {
                   </div>
 
                   <div className="flex flex-col sm:flex-row items-center gap-2 w-full sm:w-auto justify-end">
+                    {/* Alphabet filter */}
+                    <select
+                      value={selectedLetter}
+                      onChange={(e) => setSelectedLetter(e.target.value)}
+                      className="w-full sm:w-auto bg-slate-50 border border-slate-200 text-sm font-medium text-slate-700 rounded-xl py-3 px-4 outline-none focus:ring-2 focus:ring-blue-500/20 focus:bg-white cursor-pointer transition"
+                    >
+                      <option value="">🔠 All Letters</option>
+                      {"ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").map((char) => (
+                        <option key={char} value={char}>Letter: {char}</option>
+                      ))}
+                    </select>
+
                     {/* Sorting criteria */}
                     <select
                       id="sort-sortby-criteria"
@@ -772,33 +784,6 @@ export default function App() {
                     />
                   ))}
 
-                </div>
-
-                {/* Vertical A-Z Letter strip (Moved to Right for easier access) */}
-                <div className="hidden sm:flex flex-col items-center justify-between py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-bold text-slate-400 w-10 shrink-0 select-none shadow-sm">
-                  <button
-                    onClick={() => setSelectedLetter('')}
-                    className={`w-full text-center py-1.5 hover:text-blue-600 hover:bg-blue-50 transition-colors cursor-pointer text-[10px] ${
-                      !selectedLetter ? 'text-blue-600 border-l-2 border-r-2 border-blue-500 font-black bg-blue-50' : ''
-                    }`}
-                  >
-                    ALL
-                  </button>
-                  {"ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").map((char) => (
-                    <button
-                      key={char}
-                      onClick={() => {
-                        setSelectedLetter(selectedLetter === char ? '' : char);
-                      }}
-                      className={`w-full text-center py-1 hover:text-blue-600 hover:bg-blue-50 transition-colors cursor-pointer ${
-                        selectedLetter === char
-                          ? 'text-blue-600 bg-blue-50 font-black border-l-2 border-r-2 border-blue-500'
-                          : ''
-                      }`}
-                    >
-                      {char}
-                    </button>
-                  ))}
                 </div>
               </div>
 
