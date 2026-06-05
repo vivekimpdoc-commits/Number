@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Pages Deployment Demo</title>
+    <meta name="description" content="A beautiful demonstration of how to deploy a static website to GitHub Pages using GitHub Actions.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-effects">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <main class="container">
+        <header class="hero">
+            <div class="badge">🚀 Deployment Ready</div>
+            <h1 class="title">GitHub Pages <span class="gradient-text">Demo</span></h1>
+            <p class="subtitle">This project is set up with a GitHub Actions workflow to automatically deploy to GitHub Pages whenever you push to the <code>main</code> branch.</p>
+        </header>
+
+        <section class="steps-container">
+            <div class="step-card">
+                <div class="step-icon">1</div>
+                <h2>Push to GitHub</h2>
+                <p>Create a repository on GitHub and push this code to the <code>main</code> branch.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-icon">2</div>
+                <h2>Action Triggers</h2>
+                <p>The <code>.github/workflows/deploy.yml</code> file automatically triggers the deployment action.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-icon">3</div>
+                <h2>Go Live!</h2>
+                <p>Your site will be live at <code>username.github.io/repo-name</code> in minutes.</p>
+            </div>
+        </section>
+        
+        <footer class="footer">
+            <a href="#" class="btn primary-btn">View Source Code</a>
+        </footer>
+    </main>
+
+    <script>
+        // Simple micro-interaction for cards
+        document.querySelectorAll('.step-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+</body>
+</html>

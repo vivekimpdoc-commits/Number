@@ -1,0 +1,6 @@
+{
+  "name": "Police Whitelist Booklet",
+  "description": "High-performance contact manager and emergency whitelist coordinator for security officers. Seamlessly parses WhatsApp rosters with Gemini AI and handles thousands of phonebook records without lagging.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
