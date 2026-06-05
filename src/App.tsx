@@ -712,33 +712,6 @@ export default function App() {
               {/* Contacts Listing with Side A-Z strip */}
               <div className="flex-1 flex gap-3.5 min-h-0 mt-3">
                 
-                {/* Vertical A-Z Letter strip */}
-                <div className="hidden sm:flex flex-col items-center justify-between py-2 bg-slate-50 border border-slate-200 rounded-xl text-[10px] font-bold text-slate-400 w-8 shrink-0 select-none">
-                  <button
-                    onClick={() => setSelectedLetter('')}
-                    className={`w-full text-center py-1 hover:text-blue-600 transition-colors cursor-pointer text-[9px] ${
-                      !selectedLetter ? 'text-blue-600 border-l-2 border-r-2 border-blue-500 font-black' : ''
-                    }`}
-                  >
-                    ALL
-                  </button>
-                  {"ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").map((char) => (
-                    <button
-                      key={char}
-                      onClick={() => {
-                        setSelectedLetter(selectedLetter === char ? '' : char);
-                      }}
-                      className={`w-full text-center py-0.5 hover:text-blue-600 transition-colors cursor-pointer ${
-                        selectedLetter === char
-                          ? 'text-blue-600 bg-blue-50 font-black border-l border-r border-blue-500'
-                          : ''
-                      }`}
-                    >
-                      {char}
-                    </button>
-                  ))}
-                </div>
-
                 {/* Main scrollable area */}
                 <div className="flex-1 overflow-y-auto pr-1 space-y-2.5 min-h-0 scrollbar-thin">
                   
@@ -799,6 +772,33 @@ export default function App() {
                     />
                   ))}
 
+                </div>
+
+                {/* Vertical A-Z Letter strip (Moved to Right for easier access) */}
+                <div className="hidden sm:flex flex-col items-center justify-between py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-bold text-slate-400 w-10 shrink-0 select-none shadow-sm">
+                  <button
+                    onClick={() => setSelectedLetter('')}
+                    className={`w-full text-center py-1.5 hover:text-blue-600 hover:bg-blue-50 transition-colors cursor-pointer text-[10px] ${
+                      !selectedLetter ? 'text-blue-600 border-l-2 border-r-2 border-blue-500 font-black bg-blue-50' : ''
+                    }`}
+                  >
+                    ALL
+                  </button>
+                  {"ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").map((char) => (
+                    <button
+                      key={char}
+                      onClick={() => {
+                        setSelectedLetter(selectedLetter === char ? '' : char);
+                      }}
+                      className={`w-full text-center py-1 hover:text-blue-600 hover:bg-blue-50 transition-colors cursor-pointer ${
+                        selectedLetter === char
+                          ? 'text-blue-600 bg-blue-50 font-black border-l-2 border-r-2 border-blue-500'
+                          : ''
+                      }`}
+                    >
+                      {char}
+                    </button>
+                  ))}
                 </div>
               </div>
 
